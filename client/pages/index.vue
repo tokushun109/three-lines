@@ -17,9 +17,9 @@
                     <v-col v-for="(sentence, index) in sentences" :key="sentence" cols="4">
                         <v-card height="150">
                             <v-card-title>
-                                #{{ index + 1 }}
+                                {{ index + 1 }}つ目
                                 <v-spacer />
-                                <v-icon @click="handleRemove(index)">mdi-close</v-icon>
+                                <v-icon @click="handleRemove(index)">mdi-delete</v-icon>
                             </v-card-title>
                             <v-card-text>{{ sentence }}</v-card-text>
                         </v-card>
