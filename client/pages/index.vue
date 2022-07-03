@@ -18,6 +18,8 @@
                         <v-card height="150">
                             <v-card-title>
                                 #{{ index + 1 }}
+                                <v-spacer />
+                                <v-icon @click="handleRemove(index)">mdi-close</v-icon>
                             </v-card-title>
                             <v-card-text>{{ sentence }}</v-card-text>
                         </v-card>
@@ -29,6 +31,7 @@
 </template>
 
 <script setup lang="ts">
+import '@mdi/font/css/materialdesignicons.css'
 import { useSentences } from '~/composables/sentence'
 const LIMITS = 3
 const inputSentence = ref("")
@@ -37,5 +40,9 @@ const { sentences, createSentence, removeSentence } = useSentences()
 const handleSubmit = () => {
     createSentence(inputSentence.value)
     inputSentence.value = ''
+}
+
+const handleRemove = (index: number) => {
+    removeSentence(index)
 }
 </script>

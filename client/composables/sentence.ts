@@ -6,7 +6,7 @@ export const useSentences = () => {
     }
     // よかったこと を削除するための関数
     const removeSentence = (index: number) => {
-        delete sentences.value[index]
+        sentences.value.splice(index, 1)
     }
 
     return {
