@@ -2,8 +2,10 @@
     <v-layout>
         <v-app>
             <v-app-bar>
-                <v-container>
+                <v-container class="d-flex">
                     <strong>ポジティブ3行日記</strong>
+                    <v-spacer />
+                    <v-btn to="/">sign up</v-btn>
                 </v-container>
             </v-app-bar>
             <v-main>
