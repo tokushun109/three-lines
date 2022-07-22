@@ -20,17 +20,6 @@ func getSuccessResponse() (responseBody []byte, err error) {
 	return responseBody, err
 }
 
-func healthCheckHandler(w http.ResponseWriter, r *http.Request) {
-	// responseBodyで処理の成功を返す
-	responseBody, err := getSuccessResponse()
-	if err != nil {
-		http.Error(w, fmt.Sprintf("error: %s", err), http.StatusInternalServerError)
-		return
-	}
-	w.Header().Set("Content-Type", "application/json")
-	w.Write(responseBody)
-}
-
 func StartMainServer() error {
 	// gorilla/muxを使ったルーティング
 	r := mux.NewRouter().StrictSlash(true)
@@ -38,6 +27,10 @@ func StartMainServer() error {
 
 	// ヘルスチェック
 	r.HandleFunc("/api/health_check", healthCheckHandler).Methods("GET")
+
+	// User
+	r.HandleFunc("/api/signup", signupHandler).Methods("POST")
+
 	// corsの設定
 	customizeCors := cors.New(cors.Options{
 		AllowedMethods: []string{"GET", "POST", "PUT", "DELETE"},

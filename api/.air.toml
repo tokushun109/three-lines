@@ -7,7 +7,7 @@ tmp_dir = "bin"
 
 [build]
 # Just plain old shell command. You could use `make` as well.
-cmd = "go build -o ./bin/main ."
+cmd = "go build -gcflags='all=-N -l' -o ./bin/main ."
 # Binary file yields from `cmd`.
 bin = "bin/main"
 # Customize binary, can setup environment variables when run your app.
