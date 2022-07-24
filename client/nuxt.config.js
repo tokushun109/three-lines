@@ -37,7 +37,10 @@ export default defineNuxtConfig({
     // https://go.nuxtjs.dev/axios
     '@nuxtjs/axios',
   ],
-
+  publicRuntimeConfig: {
+    baseURL: process.env.BASE_URL || 'http://locahost:3000',
+    apiURL: process.env.API_URL || 'http://localhost:8080',
+  },
   // Axios module configuration: https://go.nuxtjs.dev/config-axios
   axios: {
     // Workaround to avoid enforcing hard-coded localhost:3000: https://github.com/nuxt-community/axios-module/issues/308

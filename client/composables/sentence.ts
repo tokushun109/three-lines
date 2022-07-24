@@ -1,3 +1,5 @@
+import { readonly, useState } from "@nuxt/bridge/dist/runtime"
+
 export const useSentences = () => {
     const sentences = useState<string[]>('sentences', () => [])
     // よかったこと を追加するための関数
